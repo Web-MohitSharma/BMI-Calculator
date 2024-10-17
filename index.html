@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bim CALCULATOR</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            margin: 0;
+        }
+        .container{
+            /* height: 365px; */
+            width: 80%;
+            background-color: orange;
+            margin: auto;
+            border: 1px solid #f0f0f0;
+        }
+        .top{
+            background-color: #e0dddd;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px 0px;
+        }
+        .middle{
+            background-color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .inner_middle{
+            height: auto;
+            width: auto;
+            /* background-color: brown; */
+            color: black;
+            margin-top: 20px;
+            padding-bottom: 8px;
+        }
+        input{
+            width: 400px;
+            margin: 8px 0px;
+            height: 25px;
+            font-size: 15px;
+            padding: 0px 3px;
+            text-align: left;
+        }
+        input::placeholder{
+            text-align: right;
+            padding-right:3px;
+        }
+        button{
+            width: 100px;
+            height: 30px;
+            background-color: rgb(131, 209, 14);
+            margin: 10px 0px;
+            border: none;
+            border-radius: 2px;
+        }
+        button:active{
+            color: white;
+        }
+        .bottom{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px 0px;
+            background-color: orange;
+        }
+        #bmivalue{
+            cursor:not-allowed;
+        }
+        span{
+            margin-top: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="top">
+            <h3>BMI CALCULATOR</h3>
+        </div>
+        <div class="middle">
+            <div class="inner_middle">
+                <label>Weight:</label><br>
+                <input type="number" id="Weight" placeholder="k.g"><br>
+                <label>Height:</label><br>
+                <input type="number" id="height" placeholder="cm"><br>
+                <label>BMI value:</label><br>
+                <input type="text" id="bmivalue" disabled><br>
+                <button onclick="myfun()">Check BMI</button>
+            </div>
+        </div>
+        <div class="bottom">
+            <h3>A HEALTHY MAN RANGES BETWEEN 19 AND 25</h3>
+        </div>
+    </div>
+    <script>
+        function myfun(){
+            var wei = document.getElementById("Weight").value;
+            var hei = document.getElementById("height").value;
+            hei = hei *12;
+            hei = hei*0.025;
+            var bmi = wei/(hei*hei);
+            bmi = bmi.toFixed(2);
+            document.getElementById('bmivalue').value = bmi;
+        }
+    </script>
+</body>
+</html>
